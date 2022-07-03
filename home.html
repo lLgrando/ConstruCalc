@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madeira</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="central-board-kmod">
+        <span class="span-kmod-fixo">Esses são seus valores de k<sub>mod</sub></span>
+        <div class="div-kmod-fixo">
+            <label for="kmod01-span">kmod1</label>
+            <input type="number" class="kmod01-span" placeholder="0,00" onchange="reloadCalc()"/>
+            <label for="kmod01-span">kmod2</label>
+            <input type="number" class="kmod02-span" placeholder="0,00" onchange="reloadCalc()"/>
+            <label for="kmod01-span">kmod3</label>
+            <input type="number" class="kmod03-span" placeholder="0,00" onchange="reloadCalc()"/>
+            <label for="kmod-span">kmod = </label>
+            <span class="kmod-span" >0,00</span>
+        </div>
+    </div>
+  
+    <!-- tabela de Kmod 1 -->
+
+    <main>
+        <div class="main-kmod1">
+            <button class="btn-kmod1-table" onclick="hiddenTable(event)">Valores do coeficiente de k<sub>mod1</sub></button>
+
+            <table>
+                <tr>
+                    <td style="width: 40%;">Classe de carregamento de combinações de ações</td>
+                    <td style="width: 40%;">Madeira serrada <br> Madeira Laminada <br> Madeira compensada</td>
+                    <td style="width: 20%;">Madeira recomposta</td>
+                </tr>
+                <tr>
+                    <td>Permanente</td>
+                    <td class="num-click" onclick='getKmodOne(0.6)'>0,60</td>
+                    <td class="num-click" onclick='getKmodOne(0.3)'>0,30</td>
+                </tr>
+                <tr>
+                    <td>Longa duração</td>
+                    <td class="num-click" onclick='getKmodOne(0.7)'>0,70</td>
+                    <td class="num-click" onclick='getKmodOne(0.45)'>0,45</td>
+                </tr>
+                <tr>
+                    <td>Média duração</td>
+                    <td class="num-click" onclick='getKmodOne(0.8)'>0,80</td>
+                    <td class="num-click" onclick='getKmodOne(0.65)'>0,65</td>
+                </tr>
+                <tr>
+                    <td>Curta duração</td>
+                    <td class="num-click" onclick='getKmodOne(0.9)'>0,90</td>
+                    <td class="num-click" onclick='getKmodOne(0.9)'>0,90</td>
+                </tr>
+                <tr>
+                    <td>Instantânea</td>
+                    <td class="num-click" onclick='getKmodOne(1.10)'>1,10</td>
+                    <td class="num-click" onclick='getKmodOne(1.10)'>1,10</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- tabela de Kmod 2 -->
+
+        <div class="main-kmod2">
+            <button class="btn-kmod2-table" onclick="hiddenTable(event)">Valores do coeficiente de k<sub>mod2</sub></button>
+
+            <table>
+                <tr>
+                    <td style="width: 30%;">Classe de umidade</td>
+                    <td style="width: 40%;">Madeira serrada <br> Madeira Laminada <br> Madeira compensada</td>
+                    <td style="width: 30%;">Madeira recomposta</td>
+                </tr>
+                <tr>
+                    <td>1 e 2</td>
+                    <td class="num-click" onclick='getKmod2(1.00)'>1,00</td>
+                    <td class="num-click" onclick='getKmod2(1.00)'>1,00</td>
+                </tr>
+                <tr>
+                    <td>3 4 </td>
+                    <td class="num-click" onclick='getKmod2(0.80)'>0,80</td>
+                    <td class="num-click" onclick='getKmod2(0.90)'>0,90</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!-- tabela de Kmod 3 -->
+
+        <div class="main-kmod3">
+            <button class="btn-kmod3-table" onclick="hiddenTable(event)">Valores do coeficiente de k<sub>mod3</sub></button>
+
+            <table>
+                <tr>
+                    <td style="width: 25%;">Produto de madeira</td>
+                    <td style="width: 25%;">Tipo de madeira</td>
+                    <td style="width: 30%;">Categoria</td>
+                    <td style="width: 20%;">k<sub>mod3</sub></td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Serrada</td>
+                    <td rowspan="2">Dicotiledôneas</td>
+                    <td>1° Categoria</td>
+                    <td class="num-click" onclick='getKmod3(1.00)'>1,00</td>
+                </tr>
+                <tr>
+                    <td>2° categoria</td>
+                    <td class="num-click"  onclick='getKmod3(0.80)'>0,80</td>
+                </tr>
+                <tr>
+                    <td>Coníferas</td>
+                    <td>1° ou 2°</td>
+                    <td class="num-click"  onclick='getKmod3(0.80)'>0,80</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Laminada e colada *</td>
+                    <td rowspan="2">Qualquer</td>
+                    <td>1° ou 2° - peça curva</td>
+                    <td class="num-click"  onclick='getKmod3(0.80)'>1,0 - 2000 x (r/t)²</td>
+                </tr>
+                <tr>
+                    <td>peça reta</td>
+                    <td class="num-click"  onclick='getKmod3(1.00)'>1,0</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Obs.: <br>* Laminada com espessura t e colada com raio de curvatura r (mínimo)</td>
+                </tr>
+            </table>
+        </div>
+
+    </main>
+
+
+    <script src="./script.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+table {
+    border: 1px solid black;
+    width: 430px;
+    text-align: center;
+}
+
+table tr {
+    border: 1px solid gray;
+}
+
+table td {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+    border-bottom: 1px dotted rgb(230, 224, 224);
+}
+
+.num-click:hover {
+    color: aqua;
+}
+
+.hidden-table {
+    display: none;
+}
+
+.span-kmod-fixo  {
+    font-size: 32px;
+}
+
+.btn-kmod1-table, .btn-kmod2-table, .btn-kmod3-table {
+    width: 430px;
+    height: 36px;
+    font-weight: 700;
+}
+
+.kmod01-span, .kmod02-span, .kmod03-span, .kmod-span  {
+    border: none;
+    width: 80px;
+    font-size: 32px;
+    margin: 16px;
+}
+
+.div-kmod-fixo label {
+    font-size: 14px;
+}
+
+.main-kmod1, .main-kmod2, .main-kmod3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* BARRA SUPERIOR - RESULTADO DOS kmod */
+
+.central-board-kmod {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-kmod-fixo {
+    display: flex;
+    align-items: center;
+}
